@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>kche.cc_时光轴</title>
+<meta name="description" content="记录生活每一刻" />
+</head>
+
+<body>
+
+<style type="text/css">
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;}
+body{font:12px/180% Arial, Helvetica, sans-serif, "新宋体";}
+
+.demo{width:960px;margin:60px auto 0 auto;}
+/*history*/
+.history{background:url(images/line04.gif) repeat-y 187px 0;overflow:hidden;position:relative;}
+.history-date{overflow:hidden;position:relative;}
+.history-date h2{background:#fff url(images/icon06.gif) no-repeat 158px 0;height:59px;font-size:25px;font-family:微软雅黑;font-weight:normal;padding-left:45px;margin-bottom:74px; }
+.history-date h2.first{position:absolute;left:0;top:0;width:935px;z-index:99;}
+.history-date h2 a{color:#00bbff;display:inline-block;*display:inline;zoom:1;background:url(images/icon08.gif) no-repeat right 50%;padding-right:17px;margin:21px 97px 0 0;}
+.history-date h2 a:hover{text-decoration:none;}
+.history-date h2 img{vertical-align:-5px;}
+.history-date h2.date02{background:none;}
+.history-date ul li{background:url(images/icon07.gif) no-repeat 180px 0;padding-bottom:50px;zoom:1;}
+.history-date ul li.last{padding-bottom:0;}
+.history-date ul li:after{content:" ";display:block;height:0;clear:both;visibility:hidden;}
+.history-date ul li h3{float:left;width:168px;text-align:right;padding-right:19px;color:#c3c3c3;font:normal 18px/16px Arial;}
+.history-date ul li h3 span{display:block;color:#d0d0d0;font-size:12px;}
+.history-date ul li dl{float:left;padding-left:41px;margin-top:-5px;font-family:微软雅黑;}
+.history-date ul li dl dt{font:20px/22px 微软雅黑;color:#737373;}
+.history-date ul li dl dt span{display:block;color:#787878;font-size:12px;}
+.history-date ul li.green h3{color:#1db702;}
+.history-date ul li.green h3 span{color:#a8dda3;}
+.history-date ul li.green dl{margin-top:-8px;}
+.history-date ul li.green dl dt{font-size:30px;line-height:28px;}
+.history-date ul li.green dl dt a{display:inline-block;*display:inline;zoom:1;overflow:hidden;vertical-align:middle;margin-left:12px;}
+.history-date ul li.green dl dd{padding-top:20px;display:none;}
+.history-date ul li.green dl dd img{float:left;}
+.history-date ul li.green dl dd p{overflow:hidden;zoom:1;line-height:21px;color:#787878;}
+
+.history-date h2.first .more-history{font-size:16px;background:transparent;margin-left:30px;}
+.history-date h2.first .more-history:hover{text-decoration:underline;}
+
+*body .history-date ul li dl dt{_font-size:12px!important;_font-weight:bold;}
+*body .history-date ul li dl dt span{_font-weight:normal!important;}
+*body .history-date ul li.green dl dt a{_background:transparent!important;*background:transparent!important;*font-size:12px!important;_font-weight:normal!important;}
+</style>
+
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	systole();
+});
+
+function systole(){
+	if(!$(".history").length){
+		return;
+	}
+	var $warpEle = $(".history-date"),
+		$targetA = $warpEle.find("h2 a,ul li dl dt a"),
+		parentH,
+		eleTop = [];
+	
+	parentH = $warpEle.parent().height();
+	$warpEle.parent().css({"height":59});
+	
+	setTimeout(function(){
+		
+		$warpEle.find("ul").children(":not('h2:first')").each(function(idx){
+			eleTop.push($(this).position().top);
+			$(this).css({"margin-top":-eleTop[idx]}).children().hide();
+		}).animate({"margin-top":0}, 1600).children().fadeIn();
+
+		$warpEle.parent().animate({"height":parentH}, 2600);
+
+		$warpEle.find("ul").children(":not('h2:first')").addClass("bounceInDown").css({"-webkit-animation-duration":"2s","-webkit-animation-delay":"0","-webkit-animation-timing-function":"ease","-webkit-animation-fill-mode":"both"}).end().children("h2").css({"position":"relative"});
+		
+	}, 600);
+
+	$targetA.click(function(){
+		$(this).parent().css({"position":"relative"});
+		$(this).parent().siblings().slideToggle();
+		$warpEle.parent().removeAttr("style");
+		return false;
+	});
+};
+</script>
+
+<div class="demo">
+	<div class="history">
+		<div class="history-date">
+			<ul>
+				<h2 class="first">
+					<a href="#nogo">2015年</a><img src="images/8a.jpg" alt="时光轴" />
+				
+					<input type="button" value="kche.cc 返回首页 >>"  onclick="location.href='../'">
+				</h2>
+			
+				<li class="green">
+					<h3>02.01<span>2015</span></h3>
+					<dl>
+						<dt>三大面向切入让你的网站越来越受欢迎<span>建站常识、seo   <input type="button" value="查看文章详情"  onclick="location.href='../2015-02-01.php'"></span></dt>
+					</dl>
+				</li>
+	
+		
+				<li class="green">
+					<h3>01.17<span>2015</span></h3>
+					<dl>
+						<dt>编写高效C语言的四大绝招<span>技术交流,转载鱼C<input type="button" value="查看文章详情"  onclick="location.href='../2015-01-17.php'"></span></dt>
+					</dl>
+				</li>
+				
+		
+			</ul>
+		</div>
+		
+		
+	</div>
+</div>
+
+
+<!-- kche.cc Baidu tongji analytics -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F13fcecc4e1fc58d2b34fc740c59fd910' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+</body>
+</html>
